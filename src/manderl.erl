@@ -20,8 +20,11 @@
 
 start() ->
 
-    inets:start(),
-    ssl:start(),
+    application:start(inets),
+    application:start(crypto),
+    application:start(public_key),
+    application:start(ssl),
+
     ok.
 
 
@@ -63,3 +66,18 @@ endpoint(X, php) when is_list(X) ->
 endpoint(X, json) when is_list(X) ->
 
     "https://mandrillapp.com/api/1.0" ++ X ++ ".json".
+
+
+
+
+
+% todo move this to scutil?
+
+htpost(Target, PostData) ->
+
+    case httpc:request(post, Thing, Options, ) of
+        
+        {ok,{{_,RCode,_},_,Ret}} -> {RCode, Ret};
+        Other                    -> {error, Other}
+
+    end.
