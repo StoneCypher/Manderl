@@ -38,7 +38,7 @@ endpoint(X) ->
 
 endpoint(X, xml) when is_list(X) ->
 
-    "https://mandrillapp.com/api/1.0/" ++ X ++ ".xml";
+    "https://mandrillapp.com/api/1.0" ++ X ++ ".xml";
 
 
 
@@ -46,7 +46,7 @@ endpoint(X, xml) when is_list(X) ->
 
 endpoint(X, yaml) when is_list(X) ->
 
-    "https://mandrillapp.com/api/1.0/" ++ X ++ ".yaml";
+    "https://mandrillapp.com/api/1.0" ++ X ++ ".yaml";
 
 
 
@@ -54,7 +54,7 @@ endpoint(X, yaml) when is_list(X) ->
 
 endpoint(X, php) when is_list(X) ->
 
-    "https://mandrillapp.com/api/1.0/" ++ X ++ ".php";
+    "https://mandrillapp.com/api/1.0" ++ X ++ ".php";
 
 
 
@@ -62,4 +62,4 @@ endpoint(X, php) when is_list(X) ->
 
 endpoint(X, json) when is_list(X) ->
 
-    "https://mandrillapp.com/api/1.0/" ++ X ++ ".json".
+    "https://mandrillapp.com/api/1.0" ++ X ++ ".json".
