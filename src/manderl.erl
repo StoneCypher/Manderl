@@ -106,23 +106,7 @@ htpost(Target, PostBody) when is_list(PostBody) ->
 
 post_proplist_to_string(PP) ->
 
-    post_proplist_to_string(PP, []).
-
-
-
-
-
-post_proplist_to_string([], Work) ->
-
-    sc:implode("&", Work);
-
-
-
-
-
-post_proplist_to_string([ {K,V} | Remaining ], Work) ->
-
-    post_proplist_to_string( Remaining, [ to_kv_string(K,V) ] ++ Work ).
+    sc:implode("&", [ to_kv_string(K,V) || {K,V} <- PP ]).
 
 
 
