@@ -12,7 +12,12 @@
     endpoint/1,
       endpoint/2,
 
-    htpost/2
+    htpost/2,
+
+    post_proplist_to_string/1,
+      post_proplist_to_string/2,
+
+    to_kv_string/2
 
 ]).
 
@@ -75,6 +80,14 @@ endpoint(X, json) when is_list(X) ->
 
 % todo move this to scutil?
 
+htpost(Target, [ {_Key,_Val} | _ ] = PostBody) ->
+
+    htpost(Target, post_proplist_to_string(PostBody));
+
+
+
+
+
 htpost(Target, PostBody) when is_list(PostBody) ->
 
     Options     = [],
@@ -86,3 +99,33 @@ htpost(Target, PostBody) when is_list(PostBody) ->
         Other                    -> {error, Other}
 
     end.
+
+
+
+
+
+post_proplist_to_string(PP) ->
+
+    post_proplist_to_string(PP, []).
+
+
+
+
+
+post_proplist_to_string([], Work) ->
+
+    sc:implode("&", Work);
+
+
+
+
+
+post_proplist_to_string([ {K,V} | Remaining ], Work) ->
+
+    post_proplist_to_string( Remaining, [ to_kv_string(K,V) ] ++ Work ).
+
+
+
+
+
+to_kv_string(K,V) -> "todo".
