@@ -10,7 +10,9 @@
     start/0,
 
     endpoint/1,
-      endpoint/2
+      endpoint/2,
+
+    htpost/2
 
 ]).
 
@@ -73,9 +75,12 @@ endpoint(X, json) when is_list(X) ->
 
 % todo move this to scutil?
 
-htpost(Target, PostData) ->
+htpost(Target, PostBody) when is_list(PostBody) ->
 
-    case httpc:request(post, Thing, Options, ) of
+    Options     = [],
+    ContentType = "application/x-www-form-urlencoded",
+
+    case httpc:request(post, {Target, Options, ContentType, PostBody}, [], []) of
         
         {ok,{{_,RCode,_},_,Ret}} -> {RCode, Ret};
         Other                    -> {error, Other}
