@@ -34,6 +34,14 @@ endpoint(X) ->
 
 
 
+endpoint(X, xml) when is_list(X) ->
+
+    "https://mandrillapp.com/api/1.0/" ++ X ++ ".xml";
+
+
+
+
+
 endpoint(X, json) when is_list(X) ->
 
     "https://mandrillapp.com/api/1.0/" ++ X ++ ".json".
