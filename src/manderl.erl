@@ -8,7 +8,9 @@
 -export([
 
     start/0,
-    endpoint/1
+
+    endpoint/1,
+      endpoint/2
 
 ]).
 
@@ -37,6 +39,14 @@ endpoint(X) ->
 endpoint(X, xml) when is_list(X) ->
 
     "https://mandrillapp.com/api/1.0/" ++ X ++ ".xml";
+
+
+
+
+
+endpoint(X, yaml) when is_list(X) ->
+
+    "https://mandrillapp.com/api/1.0/" ++ X ++ ".yaml";
 
 
 
