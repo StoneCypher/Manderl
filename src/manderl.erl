@@ -112,4 +112,6 @@ post_proplist_to_string(PP) ->
 
 
 
-to_kv_string(K,V) -> "todo".
+to_kv_string(K,V) ->
+
+    K ++ "=" ++ V.
