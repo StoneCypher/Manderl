@@ -52,6 +52,14 @@ endpoint(X, yaml) when is_list(X) ->
 
 
 
+endpoint(X, php) when is_list(X) ->
+
+    "https://mandrillapp.com/api/1.0/" ++ X ++ ".php";
+
+
+
+
+
 endpoint(X, json) when is_list(X) ->
 
     "https://mandrillapp.com/api/1.0/" ++ X ++ ".json".
