@@ -15,9 +15,12 @@
     htpost/2,
 
     post_proplist_to_string/1,
-      post_proplist_to_string/2,
 
-    to_kv_string/2
+    to_kv_string/2,
+
+    post_encode/1,
+    
+    rfc_1738_encode/1
 
 ]).
 
@@ -114,4 +117,28 @@ post_proplist_to_string(PP) ->
 
 to_kv_string(K,V) ->
 
-    K ++ "=" ++ V.
+    post_encode(K) ++ "=" ++ post_encode(V).
+
+
+
+
+
+post_encode(X) when is_list(X) ->
+
+    X.  % todo lol so wrong whargarbl
+
+
+
+
+
+rfc_1738_encode(List) when is_list(List) -> 
+
+    [ rfc_1738_encode(Ch) || Ch <- List ];
+
+
+
+
+
+rfc_1738_encode(Ch) when is_integer(Ch) -> 
+
+    "%" ++ sc:byte_to_hex(Ch).
