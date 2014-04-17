@@ -19,7 +19,7 @@
     to_kv_string/2,
 
     post_encode/1,
-    
+
     rfc_1738_encode/1
 
 ]).
@@ -133,7 +133,38 @@ post_encode(X) when is_list(X) ->
 
 rfc_1738_encode(List) when is_list(List) -> 
 
-    [ rfc_1738_encode(Ch) || Ch <- List ];
+    lists:flatten([ rfc_1738_encode(Ch) || Ch <- List ]);
+
+
+
+
+
+rfc_1738_encode($")  -> "%22";
+rfc_1738_encode($#)  -> "%23";
+rfc_1738_encode($%)  -> "%25";
+
+rfc_1738_encode($<)  -> "%3C";
+rfc_1738_encode($>)  -> "%3E";
+
+rfc_1738_encode($[)  -> "%5B";
+rfc_1738_encode($\\) -> "%5C";
+rfc_1738_encode($])  -> "%5D";
+rfc_1738_encode($^)  -> "%5E";
+
+rfc_1738_encode($`)  -> "%60";
+
+rfc_1738_encode(${)  -> "%7B";
+rfc_1738_encode($|)  -> "%7C";
+rfc_1738_encode($})  -> "%7D";
+rfc_1738_encode($~)  -> "%7E";
+
+
+
+
+
+rfc_1738_encode(Ch) when Ch >= 16#20, Ch < 16#7F -> 
+
+    Ch;
 
 
 
