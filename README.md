@@ -1,7 +1,7 @@
 Manderl
 =======
 
-Manderl - a Mailchimp Mandrill interface for Erlang
+Manderl - a Mailchimp [Mandrill](https://mandrillapp.com/api/docs/) interface for Erlang
 
 This module provides a simple, limited interface for [Mandrill](https://mandrillapp.com/api/docs/), the API mail interface from [MailChimp](http://mailchimp.com/).
 
@@ -10,7 +10,7 @@ This module provides a simple, limited interface for [Mandrill](https://mandrill
 Status
 ------
 
-This is a new library and is not considered to be usable yet, let alone production ready.
+This is a new library and is not considered to be usable yet, let alone production ready.  (In fact, it doesn't even work yet.)
 
 
 
