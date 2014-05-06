@@ -82,6 +82,7 @@ endpoint(X, json) when is_list(X) ->
 
 
 % todo move this to scutil?
+% probably just switch to hackney or lhttpc
 
 htpost(Target, [ {_Key,_Val} | _ ] = PostBody) ->
 
