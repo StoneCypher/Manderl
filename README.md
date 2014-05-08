@@ -14,6 +14,13 @@ This is a new library and is not considered to be usable yet, let alone producti
 
 
 
+Dependencies
+------------
+
+This library requires [scutil](https://github.com/StoneCypher/scutil.github.com/) and [hackney](https://github.com/benoitc/hackney), and uses [PropEr](http://proper.softlab.ntua.gr/).  These can be auto-installed from the [rebar](https://github.com/basho/rebar) script.
+
+
+
 Polemic :neckbeard:
 -------------------
 
